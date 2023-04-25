@@ -3,4 +3,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  namespace :client do
+    resources :products, only: [:index, :show]
+    resource :cart, only: [:show]
+    resources :cart_items, only: [:create, :destroy]
+  end
 end
